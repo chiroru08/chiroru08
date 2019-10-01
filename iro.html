@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>色見本</title>
+    <link rel="stylesheet" href="CSS/irosty.css">
+      <p id = "me" style="position:absolute;  left:90px;"></p>
+    
+    <p id = "mo" style="position:absolute;  left:290px;"></p>
+    
+    <p id = "ma" style="position:absolute; left:490px;"></p>
+    
+       <p id = "mi" style="position:absolute; left:690px;"></p>
+    
+    
+    
+    <script type="text/javascript">
+        <!--
+        var items = [ 'crimson', 'lightcoral','salmon','olive', 'mediumvioletred','pink','hotpink',  'deeppink',  'yellow', 'lemonchiffon', 'gold', 'chocolate','red','forestgreen', 'lime','lightgreen','aquamarine','aqua','lightskyblue','blue','darkblue','rebeccapurple','fuchsia','darkmagenta',
+                     'black','orange','wheat','teal','maroon','navy','olivedrab','tomato']
+
+         let mmm =  document.getElementById('me');
+         let mmo=  document.getElementById('mo');
+         let mma=  document.getElementById('ma');
+        let mmi=  document.getElementById('mi');
+        
+        function test() {
+            //描画コンテキストの取得
+            var canvas = document.getElementById('sample');
+            if (canvas.getContext) {
+                var context = canvas.getContext('2d');
+
+                
+                
+                let n = 0;
+                for (i = 0; i <= 420; i += 60) {
+
+                    context.beginPath();
+                    context.fillStyle = items[n];
+
+                    context.arc(40, 30 + i, 20, 0, Math.PI * 2, false);
+
+                    context.fill();
+                   
+        // document.getElementById('me').style.color = items[n];
+        var div = document.createElement('p');
+   
+                 
+       div.textContent =  items[n];
+        mmm.appendChild(div);
+                    n += 1; 
+                }
+
+                n = 8;
+                for (i = 0; i <= 420; i += 60) {
+
+                    context.beginPath();
+                    context.fillStyle = items[n];
+
+                    context.arc(250, 30 + i, 20, 0, Math.PI * 2, false);
+
+                    context.fill();
+                    
+                     var div = document.createElement('p');
+       div.textContent =  items[n];
+        mmo.appendChild(div);
+                    n += 1;
+                }
+
+                n = 16;
+                for (i = 0; i <= 420; i += 60) {
+
+                    context.beginPath();
+                    context.fillStyle = items[n];
+
+                    context.arc(450, 30 + i, 20, 0, Math.PI * 2, false);
+
+                    context.fill();
+                                     
+        var div = document.createElement('p');
+       div.textContent =  items[n];
+        mma.appendChild(div);
+                    n += 1;
+                }
+n = 24;
+  for (i = 0; i <= 420; i += 60) {
+
+                    context.beginPath();
+                    context.fillStyle = items[n];
+
+                    context.arc(650, 30 + i, 20, 0, Math.PI * 2, false);
+
+                    context.fill();
+                                     
+        var div = document.createElement('p');
+       div.textContent =  items[n];
+        mmi.appendChild(div);
+                    n += 1;
+                }
+
+            }
+        }
+        //
+
+        -->
+            
+ 
+      
+    </script>
+</head>
+
+<body onLoad="test()">
+    <h2>color table</h2>
+    <canvas width="800" height="500" id="sample" style="background-color:white;">
+        図形を表示するには、canvasタグをサポートしたブラウザが必要です。
+    </canvas>
+    
+  
+</body>
+
+</html>

@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>exercise</title>
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <!--キャンバス-->
+    <canvas id="canvas" width="1000" height="800"></canvas>
+
+</head>
+ <!--<a class="html" href="file:///Z:/sumple/iro.html" target="_blank" style="position:absolute; top:100px; left:840px;"><img src="名称未設定 1.png" width="130" height="130"></a>-->
+    
+    
+ <input type="button" id="bt4" value="Retry" onclick="window.location.reload();" style="position:absolute; top:680px; left:80px;" > 
+
+ 
+<!--文字　ステップ-->
+ <a href="file:///Z:/%E3%82%BC%E3%83%9F%E3%80%80%E8%AA%B2%E9%A1%8C/sumple/iro.html" target="_blank"style="position:absolute; top:440px; left:450px;"><img src="2.png" width="70" height="60"alt="色見本" ></a>
+
+<p style="position:absolute;  top:220px;left:340px;">STEP.1</p>
+<p style="position:absolute;  top:220px;left:703px;">STEP.2</p>
+<p style="position:absolute;  top:490px;left:429px;">STEP.3</p>
+    
+<form name="form1" id="for" style="position:absolute; top:370px; left:305px;">　　　
+
+    <!--テキストボックス-->
+    <input type="text" name="text1" id="tx1" class="tx" style="position:absolute;  left:40px;">　
+
+    <input type="text" name="text2" id="tx2" class="tx" style="position:absolute;  left:407px;">　
+
+    <input type="text" name="text3" id="tx3" class="tx" style="position:absolute; top:270px; left:130px;" ;>
+
+
+    <!--ボタン-->
+    <input type="button" class="button" value="<実行>" onclick="clickBtn1()" id="bt1" style="position:absolute; top:80px; left:59px;">
+
+    　<input type="button" class="button" href="#" value="<実行>" onclick="clickBtn2()" id="bt2" style="position:absolute; top:80px; left:425px;">
+    <input type="button" class="button" value="<実行>" onclick="clickBtn3()" id="bt3" style="position:absolute; top:350px; left:150px;">
+
+    <h1 style="position:absolute;  top:-45px; right:-30px;">色を変えよう</h1>
+    <h1 style="position:absolute; top:-43px; right:-413px;">大きさを変えよう</h1>
+    <h1 style="position:absolute;  top:225px; right:-122px;">回転させよう</h1>
+
+<p class="p1" id="p1"style="position:absolute;  top:50px;left:55px;">CLEAR</p>
+<p class="p1" id="p2"style="position:absolute;  top:50px;left:418px;">CLEAR</p>
+<p class="p1" id="p3"style="position:absolute;  top:320px;left:143px;">CLEAR</p>
+<p class="p1" id="p4"style="position:absolute;  top:320px;left:-69px;">Completed!</p>
+    
+    <body bgcolor="gray">
+        <!--背景カラー-->
+
+
+
+        <!-- ここにJavaScriptを書く -->
+        <script>
+            var items = ['forestgreen', 'red', 'crimson', 'lightcoral', 'salmon', 'pink', 'hotpink', 'mediumvioletred', 'fuchsia', 'deeppink', 'lemonchiffon', 'yellow', 'gold', 'chocolate', 'olive', 'lime', 'lightgreen', 'aquamarine', 'aqua', 'lightskyblue', 'blue', 'darkblue', 'rebeccapurple', 'darkmagenta', 'dimgray','orange','wheat','teal','maroon','navy','olivedrab','tomato']
+
+
+            var min = 0;
+            var max = items.length - 1;
+            var ra = Math.floor(Math.random() * (max + 1 - min)) + min;
+            console.log(items[ra])
+
+            var min1 = 1;
+            var max1 = 10;
+            var syu = Math.floor(Math.random() * (max1 + 1 - min1)) + min1;
+
+            let kk = syu / 10;
+            console.log(kk);
+
+            var min2 = 0;
+            var max2 = 36;
+            var ka = Math.floor(Math.random() * (max2 + 1 - min2)) + min2;
+            let ro = ka * 10;
+            console.log(ro);
+
+
+
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+
+            const br = 128; //白の四角位置
+            let sr = 130; //線の四角の位置
+            let jy = 50; //上段四角の高さ
+            let ty = 300; //中段四角の高さ
+            let gy = 570; //下段四角の高さ
+
+
+            //四角はじめ
+            ctx.strokeStyle = 'rgb(28, 50, 62)'; //線の色
+            ctx.fillStyle = 'white'; //塗りの色
+
+
+            //   ctx.strokeRect(50, jy, sr, sr); //上段四角　線
+            ctx.strokeRect(220, jy, sr, sr);
+            ctx.strokeRect(600, jy, sr, sr);
+            //  ctx.strokeRect(770, jy, sr, sr);
+
+
+            // ctx.fillRect(50, jy + 1, br, br); //上段四角　塗
+            ctx.fillRect(220, jy + 1, br, br);
+            ctx.fillRect(600, jy + 1, br, br);
+            //  ctx.fillRect(770, jy + 1, br, br);
+
+            ctx.lineWidth = 3;
+            ctx.strokeStyle = 'lightcoral'; //中段四角　線
+            ctx.strokeRect(145 - 1, ty, sr, sr);
+            ctx.strokeStyle = 'coral';
+            ctx.strokeRect(325 - 1, ty, sr, sr);
+            ctx.strokeStyle = 'khaki';
+            ctx.strokeRect(510 - 1, ty, sr, sr);
+            ctx.strokeStyle = 'chartreuse';
+            ctx.strokeRect(690 - 1, ty, sr, sr);
+
+
+            ctx.fillRect(145, ty + 1, br, br); //中段四角　塗
+            ctx.fillRect(325, ty + 1, br, br);
+            ctx.fillRect(510, ty + 1, br, br);
+            ctx.fillRect(690, ty + 1, br, br);
+
+
+            ctx.strokeStyle = 'plum';
+            ctx.strokeRect(230 - 1, gy - 1, sr, sr); //下段四角　線
+            ctx.strokeStyle = 'dodgerblue';
+            ctx.strokeRect(415 - 1, gy - 1, sr, sr);
+            ctx.strokeStyle = 'aqua';
+            ctx.strokeRect(600 - 1, gy - 1, sr, sr);
+
+
+
+            ctx.fillRect(230, gy, br, br); //下段四角　塗
+            ctx.fillRect(415, gy, br, br);
+            ctx.fillRect(600, gy, br, br);
+
+            //四角終わり
+
+
+
+            let ya = 80;
+
+            let zi = 60;
+
+            let ru = 185;
+
+            ctx.strokeStyle = 'white'; //上段　矢印
+            ctx.fillStyle = 'white';
+            ctx.beginPath();
+            ctx.moveTo(380, 32 + zi);
+            ctx.lineTo(410, 50 + zi);
+            ctx.lineTo(380, 68 + zi);
+            ctx.closePath();
+            ctx.stroke();
+            ctx.fill();
+
+            ctx.fillStyle = 'gainsboro';
+            ctx.beginPath();
+            ctx.moveTo(380 + ya, 32 + zi);
+            ctx.lineTo(410 + ya, 50 + zi);
+            ctx.lineTo(380 + ya, 68 + zi);
+            ctx.closePath();
+            ctx.stroke();
+            ctx.fill();
+
+            ctx.fillStyle = 'silver';
+            ctx.beginPath();
+            ctx.moveTo(380 + ya + ya, 32 + zi);
+            ctx.lineTo(410 + ya + ya, 50 + zi);
+            ctx.lineTo(380 + ya + ya, 68 + zi);
+            ctx.closePath();
+            ctx.stroke();
+            ctx.fill();
+
+
+
+
+            ctx.fillStyle = 'rgb(215, 215, 215)'; //中段、下段　矢印
+            ctx.beginPath();
+            ctx.moveTo(290, 357);
+            ctx.lineTo(305, 365);
+            ctx.lineTo(290, 373);
+            ctx.closePath();
+            ctx.fill();
+
+            // ctx.fillStyle = 'rgb(215, 215, 215)';
+            ctx.beginPath();
+            ctx.moveTo(290 + ru, 357);
+            ctx.lineTo(305 + ru, 365);
+            ctx.lineTo(290 + ru, 373);
+            ctx.closePath();
+            ctx.fill();
+
+            //  ctx.fillStyle = 'rgb(185, 185, 185)';
+            ctx.beginPath();
+            ctx.moveTo(290 + ru + ru - 3, 357);
+            ctx.lineTo(305 + ru + ru - 3, 365);
+            ctx.lineTo(290 + ru + ru - 3, 373);
+            ctx.closePath();
+            ctx.fill();
+
+
+            //ctx.fillStyle = 'rgb(155, 155, 155)';
+            ctx.beginPath();
+            ctx.moveTo(380 + ru + ru - 5, 500);
+            ctx.lineTo(390 + ru + ru - 5, 515);
+            ctx.lineTo(400 + ru + ru - 5, 500);
+            ctx.closePath();
+            ctx.fill();
+
+            //ctx.fillStyle = 'rgb(75, 75, 75)';
+            ctx.beginPath();
+            ctx.moveTo(390 + ru, 357 + 270);
+            ctx.lineTo(375 + ru, 365 + 270);
+            ctx.lineTo(390 + ru, 373 + 270);
+            ctx.closePath();
+            ctx.fill();
+
+
+            //ctx.fillStyle = 'rgb(35, 35, 35)';
+            ctx.beginPath();
+            ctx.moveTo(390, 357 + 270);
+            ctx.lineTo(375, 365 + 270);
+            ctx.lineTo(390, 373 + 270);
+            ctx.closePath();
+            ctx.fill();
+
+
+            //三角はじめ
+            ctx.fillStyle = 'rgb(228, 0, 127)'; //三角　ピンク
+
+
+            let p = 115; //上段三角形開始位置
+
+
+            ctx.beginPath();
+            ctx.moveTo(p + 130, 150);
+            ctx.lineTo(p + 170, 70);
+            ctx.lineTo(p + 210, 150);
+            ctx.closePath();
+            ctx.fill();
+
+            let q = 200; //中段三角形開始位置
+            let mm = 400;
+
+            ctx.beginPath();
+            ctx.moveTo(q + 10 - 40, mm);
+            ctx.lineTo(q + 10, mm - 80);
+            ctx.lineTo(q + 10 + 40, mm);
+            ctx.closePath();
+            ctx.fill();
+
+
+
+
+            ctx.translate(664, 120); //軸移動
+            ctx.rotate(ro * Math.PI / 180); //指定した回転角度分回転
+
+            ctx.fillStyle = items[ra]; //三角ランダム
+
+            ctx.beginPath();
+            ctx.moveTo(-40 * kk, 33 * kk);
+            ctx.lineTo(0 * kk, -47 * kk);
+            ctx.lineTo(40 * kk, 33 * kk);
+            ctx.closePath();
+            ctx.fill();
+            ctx.scale(1, 1); //元に戻す処理
+            ctx.rotate(-1 * ro * Math.PI / 180);
+            ctx.translate(-664, -120);
+
+
+            //三角終わり
+
+
+
+
+            document.getElementById("bt2").style.display = "none"; //ボタンを消しとく
+            document.getElementById("bt3").style.display = "none";
+            document.getElementById("p1").style.display = "none";
+           document.getElementById("p2").style.display = "none";
+           document.getElementById("p3").style.display = "none";
+            document.getElementById("p4").style.display = "none";
+
+            //工程1の処理
+
+            function clickBtn1() {
+                const t1 = document.form1.text1.value;
+
+                ctx.fillStyle = 'white'; //四角を上書き
+                ctx.fillRect(510, ty + 1, br, br);
+
+
+                ctx.fillStyle = t1; //指定した色に設定した三角形の描画
+                ctx.beginPath();
+                ctx.moveTo(q + 333, mm);
+                ctx.lineTo(q + 373, mm - 80);
+                ctx.lineTo(q + 413, mm);
+                ctx.closePath();
+                ctx.fill();
+
+                if (t1 === items[ra]) {
+                    document.getElementById("bt1").style.display = "none"; //ボタンが消える処理
+                    document.getElementById("bt2").style.display = "block"; //現れる処理
+                    
+                     document.getElementById("p1").style.display = "block";//CLEARの文字
+                }
+
+            }
+
+
+
+
+            //工程2の処理
+            function clickBtn2() {
+
+                const t2 = document.form1.text2.value;
+
+
+                if (t2 <= 1) { //入力値が１以下だったら
+
+                    ctx.fillStyle = 'white'; //四角形の描画
+                    ctx.fillRect(600, gy, br, br);
+
+                    ctx.fillStyle = items[ra]; //三角形の描画
+                    ctx.translate(600 + br / 2, 570 + br / 2);
+
+
+                    ctx.beginPath();
+                    ctx.moveTo(-40 * t2, 33 * t2);
+                    ctx.lineTo(0 * t2, -47 * t2);
+                    ctx.lineTo(40 * t2, 33 * t2);
+                    ctx.closePath();
+                    ctx.fill();
+
+                    ctx.scale(1, 1); //倍率と移動を元に戻す
+                    ctx.translate(-(600 + br / 2), -(570 + br / 2));
+
+
+                    if (t2 == kk) {
+                        document.getElementById("bt2").style.display = "none"; //ボタンが消える処理
+                        document.getElementById("bt3").style.display = "block"; //現れる処理 
+                          document.getElementById("p2").style.display = "block";//CLEARの文字
+
+
+                    }
+                }
+            }
+
+
+
+
+
+            //工程3の処理
+            function clickBtn3() {
+
+
+                const t3 = document.form1.text3.value;
+
+                ctx.fillStyle = 'white'; //四角形の描画
+                ctx.fillRect(230, gy, br, br);
+
+                ctx.translate(230 + br / 2, 570 + br / 2); //軸移動
+                ctx.rotate(t3 * Math.PI / 180); //指定した回転角度分回転
+
+                ctx.fillStyle = items[ra];
+                ctx.beginPath();
+                ctx.moveTo(-40 * kk, 33 * kk);
+                ctx.lineTo(0 * kk, -47 * kk);
+                ctx.lineTo(40 * kk, 33 * kk);
+                ctx.closePath();
+                ctx.fill();
+
+                ctx.scale(1, 1); //元に戻す処理
+                ctx.rotate(-t3 * Math.PI / 180);
+                ctx.translate(-(230 + br / 2), -(570 + br / 2));
+
+
+                if (t3 == ro) {
+                    document.getElementById("bt3").style.display = "none"; //ボタンが消える処理
+                    document.getElementById("p3").style.display = "block";
+                    document.getElementById("p4").style.display = "block";
+
+                }
+
+            }
+
+        </script>
+
+
+    </body>
