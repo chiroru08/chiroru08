@@ -3,53 +3,70 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>色見本</title>
+    <title>遊び方</title>
     <link rel="stylesheet" href="CSS/irosty.css">
-      <p id = "me" style="position:absolute;  left:90px;"></p>
-    
-    <p id = "mo" style="position:absolute;  left:290px;"></p>
-    
-    <p id = "ma" style="position:absolute; left:490px;"></p>
-    
-       <p id = "mi" style="position:absolute; left:690px;"></p>
-    
-    
-    
-    <script type="text/javascript">
-        <!--
-        var items = [ 'crimson', 'lightcoral','salmon','olive', 'mediumvioletred','pink','hotpink',  'deeppink',  'yellow', 'lemonchiffon', 'gold', 'chocolate','red','forestgreen', 'lime','lightgreen','aquamarine','aqua','lightskyblue','blue','darkblue','rebeccapurple','fuchsia','darkmagenta',
-                     'black','orange','wheat','teal','maroon','navy','olivedrab','tomato']
 
-         let mmm =  document.getElementById('me');
-         let mmo=  document.getElementById('mo');
-         let mma=  document.getElementById('ma');
-        let mmi=  document.getElementById('mi');
-        
+
+
+
+</head>
+
+<body onLoad="test()">
+    <h2>左上にあるピンク色の三角形を、隣にある見本の三角形に変更しよう！</h2>  
+    
+
+    
+    <h4>　　STEP1から順番を記述欄に入力し実行ボタンを押してください<br> 　正解であればCLEARという文字が出現しますので、次のステップに進んでください</h4>
+<div class="box11">
+    
+  <h4> 　・STEP1：　CSSが対応している色名を記述欄に入力しよう！</h4>
+    <h4>　　 　　　　　 見本の三角形の色は下記の色からランダムに選ばれます</h4>
+</div>
+    <br>
+
+    <p id="me" style="position:absolute;  left:90px;"></p>
+
+    <p id="mo" style="position:absolute;  left:290px;"></p>
+
+    <p id="ma" style="position:absolute; left:490px;"></p>
+
+    <p id="mi" style="position:absolute; left:690px;"></p>
+    <script type="text/javascript">
+    
+        var items = ['crimson', 'lightcoral', 'salmon', 'olive', 'mediumvioletred', 'pink', 'hotpink', 'deeppink', 'yellow', 'lemonchiffon', 'gold', 'chocolate', 'red', 'forestgreen', 'lime', 'lightgreen', 'aquamarine', 'aqua', 'lightskyblue', 'blue', 'darkblue', 'rebeccapurple', 'fuchsia', 'darkmagenta',
+            'black', 'orange', 'wheat', 'teal', 'maroon', 'navy', 'olivedrab', 'tomato'
+        ]
+
+        let mmm = document.getElementById('me');
+        let mmo = document.getElementById('mo');
+        let mma = document.getElementById('ma');
+        let mmi = document.getElementById('mi');
+
         function test() {
             //描画コンテキストの取得
             var canvas = document.getElementById('sample');
             if (canvas.getContext) {
                 var context = canvas.getContext('2d');
 
-                
-                
+
+
                 let n = 0;
                 for (i = 0; i <= 420; i += 60) {
 
                     context.beginPath();
                     context.fillStyle = items[n];
 
-                    context.arc(40, 30 + i, 20, 0, Math.PI * 2, false);
+                    context.arc(40, 50 + i, 20, 0, Math.PI * 2, false);
 
                     context.fill();
-                   
-        // document.getElementById('me').style.color = items[n];
-        var div = document.createElement('p');
-   
-                 
-       div.textContent =  items[n];
-        mmm.appendChild(div);
-                    n += 1; 
+
+                    // document.getElementById('me').style.color = items[n];
+                    var div = document.createElement('p');
+
+
+                    div.textContent = items[n];
+                    mmm.appendChild(div);
+                    n += 1;
                 }
 
                 n = 8;
@@ -58,13 +75,13 @@
                     context.beginPath();
                     context.fillStyle = items[n];
 
-                    context.arc(250, 30 + i, 20, 0, Math.PI * 2, false);
+                    context.arc(250, 50 + i, 20, 0, Math.PI * 2, false);
 
                     context.fill();
-                    
-                     var div = document.createElement('p');
-       div.textContent =  items[n];
-        mmo.appendChild(div);
+
+                    var div = document.createElement('p');
+                    div.textContent = items[n];
+                    mmo.appendChild(div);
                     n += 1;
                 }
 
@@ -74,49 +91,54 @@
                     context.beginPath();
                     context.fillStyle = items[n];
 
-                    context.arc(450, 30 + i, 20, 0, Math.PI * 2, false);
+                    context.arc(450, 50 + i, 20, 0, Math.PI * 2, false);
 
                     context.fill();
-                                     
-        var div = document.createElement('p');
-       div.textContent =  items[n];
-        mma.appendChild(div);
+
+                    var div = document.createElement('p');
+                    div.textContent = items[n];
+                    mma.appendChild(div);
                     n += 1;
                 }
-n = 24;
-  for (i = 0; i <= 420; i += 60) {
+                n = 24;
+                for (i = 0; i <= 420; i += 60) {
 
                     context.beginPath();
                     context.fillStyle = items[n];
 
-                    context.arc(650, 30 + i, 20, 0, Math.PI * 2, false);
+                    context.arc(650, 50 + i, 20, 0, Math.PI * 2, false);
 
                     context.fill();
-                                     
-        var div = document.createElement('p');
-       div.textContent =  items[n];
-        mmi.appendChild(div);
+
+                    var div = document.createElement('p');
+                    div.textContent = items[n];
+                    mmi.appendChild(div);
                     n += 1;
                 }
 
             }
         }
-        //
+        
 
-        -->
-            
- 
-      
+     
+
     </script>
-</head>
-
-<body onLoad="test()">
-    <h2>color table</h2>
-    <canvas width="800" height="500" id="sample" style="background-color:white;">
-        図形を表示するには、canvasタグをサポートしたブラウザが必要です。
+    <canvas width="800" height="500" id="sample" style="background-color:none;">
+   
     </canvas>
     
-  
+    
+    <div class="box11">
+    
+  <h4> 　・STEP2：　大きさ（倍率）を見本の三角形に合わせる</h4>
+    <h4>　　 　　　　　 左上の三角形の大きさを1.0として、0.0～1.0（0.1ずつ刻み）の倍率を入力しよう！</h4>
+</div>
+    
+        <div class="box11">
+    
+  <h4> 　・STEP3：　回転角度を見本の三角形に合わせる</h4>
+    <h4>　　 　　　　　 左上の三角形の角度を0として、360度（10度刻み）の間で回転角度を入力しよう！</h4>
+</div>
 </body>
 
 </html>

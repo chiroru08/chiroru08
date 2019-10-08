@@ -1,11 +1,53 @@
-* {
+p {
     
     line-height: 10px;
     font-size: 15px;
     font-family: 'Roman';
 line-height: 45px;
-top:74px;}
-      
-h2{   font-size: 30px;
+    
+}
+  
+h2 {
+
+  position: relative;
+  display: inline-block;
+  padding: 0 55px;
+    color:dimgrey
+}
+
+h2:before, h2:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  width: 45px;
+  height: 1px;
+  background-color: black;
+}
+
+h2:before {
+  left:0;
+}
+h2:after {
+  right: 0;
+}
+
+
+
+h4{font-size: 15px;
+    
 color:dimgrey;}
 
+
+.box11{
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: aqua;
+    background: white;
+    border-top: solid 10px orange;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+.box11  {
+    margin: 10; 
+    padding: 50;
+}
